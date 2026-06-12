@@ -33,6 +33,11 @@ import kotlinx.coroutines.flow.update
 @OptIn(ExperimentalCoroutinesApi::class)
 class FakeInterestsRepository : InterestsRepository {
 
+    /*lazy: inicialización diferida
+    la lista topics no se crea cuando se instancia la clase,
+    sino la primera vez que alguien accede a topics.
+    * */
+
     private val topics by lazy {
         listOf(
             InterestSection("Android", listOf("Jetpack Compose", "Kotlin", "Jetpack")),

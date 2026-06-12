@@ -21,7 +21,7 @@ import com.example.jetnews.model.Post
 import com.google.ai.client.generativeai.GenerativeModel
 
 class GeminiRepositoryImpl: GeminiRepository {    
-    val MODEL_NAME ="gemini-2.0-flash"
+    val MODEL_NAME ="gemini-2.5-flash"
     val API_KEY =BuildConfig.API_KEY
     // Instantiate GenerativeModel here
     private val generativeModel = null
@@ -34,6 +34,12 @@ class GeminiRepositoryImpl: GeminiRepository {
         for (paragraph in post.paragraphs) {
             postString.append(paragraph.text)
         }
+        /**
+        Resume el siguiente artículo en 4 puntos concisos.
+        Asegúrate de que cada punto sea específico, informativo y relevante.
+        Devuelve solo los puntos como texto sin formato.
+        Usa texto sin formato, no uses Markdown.
+        **/
         val prompt =
             "Summarize the following article in 4 concise bullet points. " +
                     "Ensure each bullet point is specific, informative and relevant. " +
